@@ -1,3 +1,16 @@
+# Neophyte
+
+**Neophyte is [NEO](https://github.com/hughhowey/neo) with two more pages: Parchment and E-Ink.** It is not the official NEO.
+
+- **View → Page → Parchment:** a warm cream page with brown ink, and the whole app warm with it, for writing in low light.
+- **View → Page → E-Ink:** black on white, with no gray, shadow or fade, for e-ink screens.
+
+Both are offered to NEO as [#578](https://github.com/hughhowey/neo/pull/578) and [#577](https://github.com/hughhowey/neo/pull/577) (from [#564](https://github.com/hughhowey/neo/issues/564)). Neophyte exists until NEO decides on them. Everything else is NEO, by Hugh Howey, under the same MIT license.
+
+Neophyte installs beside NEO, with its own settings, and opens the same NEO Library. Don't run both at once. Its updates come from this repository's releases.
+
+---
+
 # NEO
 
 **A distraction-free word processor for authors, by a wannabe author.**
