@@ -4,7 +4,7 @@ android {
     namespace = "com.hughhowey.neopocket"
     compileSdk = rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.hughhowey.neopocket"
+        applicationId "io.github.jom4337.neophyte.pocket"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         // CI passes these in (see .github/workflows/pocket.yml); local builds get 1 / "local".

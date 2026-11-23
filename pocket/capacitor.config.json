@@ -1,6 +1,6 @@
 {
-  "appId": "com.hughhowey.neopocket",
-  "appName": "NEO Pocket",
+  "appId": "io.github.jom4337.neophyte.pocket",
+  "appName": "Neophyte Pocket",
   "webDir": "www",
   "android": {
     "allowMixedContent": false
