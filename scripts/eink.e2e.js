@@ -208,6 +208,21 @@ async function main() {
       await js(`popMenu.close()`);
     });
 
+    await test('with the system\'s Reduce Motion on, nothing fades either, the window itself included', async () => {
+      // (NEO's Reduce Motion rule gives every element a 0.01ms transition)
+      const media = (features) => win.webContents.debugger.sendCommand('Emulation.setEmulatedMedia', { features });
+      win.webContents.debugger.attach();
+      try {
+        await media([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
+        assert.equal(await js(`matchMedia('(prefers-reduced-motion: reduce)').matches`), true);
+        assert.equal(await js(`getComputedStyle(document.body).transitionDuration`), '0s');
+        await onlyBlackAndWhite();
+      } finally {
+        await media([]);
+        win.webContents.debugger.detach();
+      }
+    });
+
     await test('NEO scrolls in one jump on E-Ink, and the caret holds still', async () => {
       assert.equal(await js(`scrollBehavior()`), 'auto');
       assert.equal(await js(`getComputedStyle(document.querySelector('.chapter-body')).caretAnimation`), 'manual');

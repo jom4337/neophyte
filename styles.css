@@ -2710,7 +2710,9 @@ body.eink {
   --nb-mark-tint: transparent;
   background: #fff; color: #000;
 }
-body.eink *, body.eink *::before, body.eink *::after {
+/* (the body too: Reduce Motion's rule, on every element, would give it a
+   0.01ms transition) */
+body.eink, body.eink *, body.eink *::before, body.eink *::after {
   box-shadow: none !important;
   text-shadow: none !important;
   transition: none !important;
