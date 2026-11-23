@@ -42,9 +42,13 @@ function applyFonts() {
   refreshDropCaps(true);
   document.body.classList.toggle('night', library.pageTheme === 'night');
   // Light: the paper page in a light room, the whole app with it
-  // E-Ink: black on white for e-ink screens. It builds on Light (the light
-  // room and panes), then takes out every gray, shadow and fade
-  document.body.classList.toggle('light', library.pageTheme === 'light' || library.pageTheme === 'eink');
+  // Parchment: a warm cream page and the whole app warm with it, for
+  // writing in low light. E-Ink: black on white for e-ink screens. Both
+  // build on Light (the light room and panes): Parchment then warms every
+  // color (blue always stays below red), E-Ink takes out every gray,
+  // shadow and fade
+  document.body.classList.toggle('light', ['light', 'parchment', 'eink'].includes(library.pageTheme));
+  document.body.classList.toggle('parchment', library.pageTheme === 'parchment');
   document.body.classList.toggle('eink', library.pageTheme === 'eink');
   // (focus mode's mark differs in E-Ink: the page's edge breaks off)
   if (focusLevel !== 'off') updateFocus();

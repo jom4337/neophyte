@@ -184,7 +184,7 @@ describe('Format menu: Drop Cap Style ticks one choice (#422)', () => {
 
 describe('View → Page: one page is ticked, and the window takes its room color', () => {
   const page = (template) => item(template.find((m) => m.label === 'View').submenu, 'Page').submenu;
-  const choices = { night: 'Night', paper: 'Paper', light: 'Light', eink: 'E-Ink' };
+  const choices = { night: 'Night', paper: 'Paper', light: 'Light', parchment: 'Parchment', eink: 'E-Ink' };
   for (const platform of ['darwin', 'win32', 'linux']) {
     for (const [value, label] of Object.entries(choices)) {
       test(`${label} alone is ticked (${platform})`, () => {
@@ -203,6 +203,7 @@ describe('View → Page: one page is ticked, and the window takes its room color
     assert.equal(roomColor('night'), '#191919');
     assert.equal(roomColor('paper'), '#191919');
     assert.equal(roomColor('light'), '#efede8');
+    assert.equal(roomColor('parchment'), '#e6d5b3');
     assert.equal(roomColor('eink'), '#ffffff');
     assert.equal(roomColor(undefined), '#191919');
   });

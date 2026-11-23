@@ -2471,9 +2471,10 @@ let backupRunning = false;
 // Window
 // The window's own color, seen for a moment before the page draws and at the
 // edges while it resizes: the room's color, dark, (View → Page → Light) light
-// or (E-Ink) white
+// or (Parchment) warm, or (E-Ink) white
 function roomColor(theme) {
   if (theme === 'light') return '#efede8';
+  if (theme === 'parchment') return '#e6d5b3';
   if (theme === 'eink') return '#ffffff';
   return '#191919';
 }
@@ -3222,10 +3223,12 @@ function buildMenu() {
           label: t('Page'),
           submenu: [
             // Night is the default: ticked unless another page is chosen
-            { label: t('Night'), type: 'radio', checked: !['paper', 'light', 'eink'].includes(viewState.pageTheme), click: () => sendToWindow({ type: 'pageTheme', value: 'night' }) },
+            { label: t('Night'), type: 'radio', checked: !['paper', 'light', 'parchment', 'eink'].includes(viewState.pageTheme), click: () => sendToWindow({ type: 'pageTheme', value: 'night' }) },
             { label: t('Paper'), type: 'radio', checked: viewState.pageTheme === 'paper', click: () => sendToWindow({ type: 'pageTheme', value: 'paper' }) },
             // white paper in a light room: the whole app, shelf included
             { label: t('Light'), type: 'radio', checked: viewState.pageTheme === 'light', click: () => sendToWindow({ type: 'pageTheme', value: 'light' }) },
+            // a warm cream page with brown ink, the whole app warm with it
+            { label: t('Parchment'), type: 'radio', checked: viewState.pageTheme === 'parchment', click: () => sendToWindow({ type: 'pageTheme', value: 'parchment' }) },
             // black on white with no gray, shadow or fade, for e-ink screens
             { label: t('E-Ink'), type: 'radio', checked: viewState.pageTheme === 'eink', click: () => sendToWindow({ type: 'pageTheme', value: 'eink' }) }
           ]
