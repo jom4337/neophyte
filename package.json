@@ -1,7 +1,7 @@
 {
   "name": "neo",
   "productName": "Neophyte",
-  "version": "2.0.0-neophyte.1",
+  "version": "2.0.0-neophyte.2",
   "description": "A word processor for authors. Distraction-free by default.",
   "homepage": "https://github.com/jom4337/neophyte",
   "main": "main.js",
